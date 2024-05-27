@@ -1,0 +1,33 @@
+pipeline{
+    agent any
+    stages{
+        stage('hostname'){
+            steps{
+                sh '''
+                    uname -a
+                '''
+            }
+        }
+        stage('Memory'){
+            steps{
+                sh '''
+                    free -h
+                '''
+            }
+        }
+        stage('Disk Utilization'){
+            steps{
+                sh '''
+                    df -kh
+                '''
+            }
+        }
+        stage('Uptime'){
+            steps{
+                sh '''
+                    uptime
+                '''
+            }
+        }
+    }
+}
